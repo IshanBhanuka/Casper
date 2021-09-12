@@ -1,0 +1,191 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.7039184043079059 -0.6856294549864271 -0.1855023733854269 0.7654429986919485
+  position -2.545188874583898 2.9194029595202755 4.393522376297745
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 0 0 0.23
+  rotation 0 0 1 0
+  floorSize 2.8 2.8
+  floorAppearance PBRAppearance {
+    roughness 0.8
+    metalness 0
+  }
+}
+Robot {
+  translation -0.753946 0.02 0.30611
+  rotation 0 -1 0 -0.261795307179586
+  children [
+    DEF RIGHT DistanceSensor {
+      translation 0.02 -0.007 -0.037
+      rotation 0 0 -1 1.57
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 0.005 0.005 0.01
+          }
+        }
+      ]
+      name "right_sensor"
+      type "infra-red"
+    }
+    DEF Left DistanceSensor {
+      translation -0.02 -0.007 -0.037
+      rotation 0 0 -1 1.491000306100425
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 0.005 0.005 0.01
+          }
+        }
+      ]
+      name "left_sensor"
+      type "infra-red"
+    }
+    Solid {
+      translation 0 -0.007 0.03
+      children [
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry DEF STEEL_BALL Sphere {
+            radius 0.007
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE STEEL_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation 0 -0.007 -0.03
+      children [
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry DEF STEEL_BALL Sphere {
+            radius 0.007
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject USE STEEL_BALL
+      physics Physics {
+      }
+    }
+    DEF left HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1.247094525054033
+      }
+      device [
+        RotationalMotor {
+          name "MotorL"
+        }
+      ]
+      endPoint Solid {
+        translation 0.053499998738523964 1.2297974568405099e-06 3.995697761965598e-06
+        rotation 0.5042465835676015 -0.5042485369232726 0.7010483549450356 1.9187378631990057
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.2 0.2 0.4
+              roughness 0.8
+              metalness 0
+            }
+            geometry DEF WHEEL Cylinder {
+              height 0.005
+              radius 0.015
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF right HingeJoint {
+      jointParameters HingeJointParameters {
+        position -2.2711923645399597
+      }
+      device [
+        RotationalMotor {
+          name "MotorR"
+        }
+      ]
+      endPoint Solid {
+        translation -0.053499998738824814 -2.613333087417761e-06 -3.2630930102607934e-06
+        rotation -0.6717360317329613 0.6717383032782261 0.3123113119637904 2.5361686552011093
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.2 0.2 0.4
+              roughness 0.8
+              metalness 0
+            }
+            geometry DEF WHEEL Cylinder {
+              height 0.005
+              radius 0.015
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "textures/grass.jpg"
+          ]
+        }
+        roughness 0.2
+        metalness 0
+      }
+      geometry DEF CHASIS Cylinder {
+        height 0.01
+        radius 0.05
+      }
+    }
+  ]
+  boundingObject USE CHASIS
+  physics Physics {
+  }
+  controller "my_controller2"
+}
+Solid {
+  translation -1.1 -0.0049 1.45
+  rotation 1 0 0 -1.5707996938995747
+  scale 0.001 0.001 0.001
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+        roughness 0.8
+        metalness 0
+      }
+      geometry DEF LINE Mesh {
+        url [
+          "C:/Users/ishan/Desktop/New/path_3/z_path/line 2.STL"
+        ]
+      }
+    }
+  ]
+  boundingObject USE LINE
+}

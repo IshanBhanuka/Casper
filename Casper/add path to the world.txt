@@ -1,0 +1,14 @@
+# follow this path in order to add the line following path to the webot world
+
+1. open the webot file
+2. go to the scene tree
+3. open the solid node
+4. follow the following path
+	solid > children > Shape > geometry > url
+5. under url tab press select button ( left bottem conner, near edit button)
+6. press select button
+7. copy the files in path folder in to the opening location (there is a folder named path in the given file)
+8. then select the newly copied path
+9. path shold be opened in the webot world.
+
+you can find a explanation about in RAS UOP youtube channel [workshop on webots, second day, last minutes]
