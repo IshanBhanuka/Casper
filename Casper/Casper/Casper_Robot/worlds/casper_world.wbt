@@ -1,0 +1,331 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.001565559382714649 -0.9763085651779615 -0.21637729683118226 3.15561139406054
+  position 0.12660942560226857 1.2668193628489148 -2.6345752014067734
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 0 0 0.23
+  rotation 0 0 1 0
+  floorSize 2.8 2.8
+  floorAppearance PBRAppearance {
+    roughness 0.8
+    metalness 0
+  }
+}
+Solid {
+  translation -1.1 -0.0049 1.45
+  rotation 1 0 0 -1.5707996938995747
+  scale 0.001 0.001 0.001
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+        roughness 0.8
+        metalness 0
+      }
+      geometry DEF LINE Mesh {
+        url [
+          "C:/Users/ishan/Desktop/Casper/Paths/line 3.STL"
+        ]
+      }
+    }
+  ]
+  boundingObject USE LINE
+}
+Robot {
+  translation -0.744565 0.0149366 0.367217
+  rotation 0 1 0 -3.0880353071795863
+  children [
+    Solid {
+      translation 0 0.12 0.03
+      rotation 1 0 0 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry Cone {
+            bottomRadius 0.02
+            height 0.07
+          }
+        }
+      ]
+      name "solid(8)"
+    }
+    Solid {
+      translation 0 0.15 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.4 0.3 0.2
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.007
+            radius 0.03
+          }
+        }
+      ]
+      name "solid(6)"
+    }
+    Solid {
+      translation 0 0.157 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.4 0.3 0.2
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.02
+            radius 0.022
+          }
+        }
+      ]
+      name "solid(7)"
+    }
+    Solid {
+      translation 0 0.09 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.02
+            radius 0.027
+          }
+        }
+      ]
+      name "solid(11)"
+    }
+    Solid {
+      translation -0.02 0.07 0.01
+      rotation 0 0 1 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.01
+            radius 0.03
+          }
+        }
+      ]
+      name "solid(12)"
+    }
+    Solid {
+      translation 0 0.05 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.05
+            subdivision 2
+          }
+        }
+      ]
+      name "solid(4)"
+    }
+    Solid {
+      translation 0 0.12 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.033
+            subdivision 2
+          }
+        }
+      ]
+      name "solid(5)"
+    }
+    Solid {
+      translation -0.015 0.13 0.02
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.009
+            subdivision 2
+          }
+        }
+      ]
+      name "solid(9)"
+    }
+    Solid {
+      translation 0.015 0.13 0.02
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.009
+            subdivision 2
+          }
+        }
+      ]
+      name "solid(10)"
+    }
+    DEF RightSensor DistanceSensor {
+      translation -0.03 0.0072 0.043
+      rotation -0.7071067811865475 0.7071067811865475 0 3
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 0.005 0.005 0.005
+          }
+        }
+      ]
+      name "RightSensor"
+      type "infra-red"
+    }
+    DEF LeftSensor DistanceSensor {
+      translation 0.03 0.0072 0.043
+      rotation -0.7071067811865475 0.7071067811865475 0 3
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 0.005 0.005 0.005
+          }
+        }
+      ]
+      name "LeftSensor"
+      type "infra-red"
+    }
+    Solid {
+      translation 0 -0.007 0.03
+      children [
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry DEF STEEL_BALL Sphere {
+            radius 0.007
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE STEEL_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation 0 -0.007 -0.03
+      children [
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry DEF STEEL_BALL Sphere {
+            radius 0.007
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject USE STEEL_BALL
+      physics Physics {
+      }
+    }
+    DEF left HingeJoint {
+      jointParameters HingeJointParameters {
+        position 885.9972302713031
+      }
+      device [
+        DEF MotorL RotationalMotor {
+          name "MotorR"
+        }
+      ]
+      endPoint Solid {
+        translation 0.053500005694436706 9.108364936392635e-08 -1.546890368521432e-07
+        rotation -0.22783235812784347 0.22785140309004295 -0.9466658094067858 4.657599849263109
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.2 0.2 0.4
+              roughness 0.8
+              metalness 0
+            }
+            geometry DEF WHEEL Cylinder {
+              height 0.005
+              radius 0.015
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF right HingeJoint {
+      jointParameters HingeJointParameters {
+        position 851.5361451496562
+      }
+      device [
+        RotationalMotor {
+          name "MotorL"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05350000547551491 -9.40759638687343e-07 -6.182403900285946e-07
+        rotation -0.6800046528477112 0.6799978259852628 0.2742200371248976 2.606331965811684
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.2 0.2 0.4
+              roughness 0.8
+              metalness 0
+            }
+            geometry DEF WHEEL Cylinder {
+              height 0.005
+              radius 0.015
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+        roughness 0.2
+        metalness 0
+      }
+      geometry DEF CHASSIS Cylinder {
+        height 0.01
+        radius 0.05
+      }
+    }
+  ]
+  boundingObject USE CHASSIS
+  physics Physics {
+  }
+  controller "casper"
+}
